@@ -42,7 +42,7 @@ public class LadowanieZdjecia extends JPanel implements ActionListener {
 	int returnVal;
 	public paint dziala;
 	public JButton detection;
-	public JButton kamera;
+
 	public JPanel detekcjaa;
 	public paint poDetekcji;
 
@@ -51,22 +51,7 @@ public class LadowanieZdjecia extends JPanel implements ActionListener {
 
 		wczytaj = new JButton("Zaladuj");
 		detection = new JButton("Detekcja");
-		kamera = new JButton("Kamera");
-		kamera.addActionListener(new ActionListener() {
 
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				//JFrame Vd = new JFrame("Detekcja");
-
-				//Vd.setSize(800, 600);
-				PrzechwytVideo videe = new PrzechwytVideo();
-					
-		
-				//Vd.add(videe.panelDoWyswietlenia);
-
-				//Vd.setVisible(true);
-			}
-		});
 		detection.addActionListener(new ActionListener() {
 
 			@Override
@@ -99,7 +84,7 @@ public class LadowanieZdjecia extends JPanel implements ActionListener {
 		wczytaj.addActionListener(this);
 		zaladuj.add(wczytaj, BorderLayout.NORTH);
 		zaladuj.add(detection, BorderLayout.NORTH);
-		zaladuj.add(kamera, BorderLayout.SOUTH);
+
 		zaladuj.setSize(new Dimension(400, 500));
 
 		dziala = new paint();

@@ -1,5 +1,7 @@
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -38,6 +40,17 @@ public class MenuGlowne extends JPanel {
 		menu.add(detekcjaZdjecie);
 		menu.add(detekcjaLive);
 		menu.setBackground(Color.GRAY);
+		
+		
+		detekcjaScreen.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new PrzechwytVideo();
+				
+			}
+		});
+		
 	}
 
 }
