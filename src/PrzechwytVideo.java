@@ -4,7 +4,10 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.awt.image.RenderedImage;
 import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.IOException;
 import java.nio.ByteOrder;
 
 import javax.imageio.ImageIO;
@@ -25,6 +28,7 @@ public class PrzechwytVideo extends JFrame implements ActionListener {
 	private JButton takePicture;
 	private DaemonThread myThread = null;
 	int count = 0;
+	 public BufferedImage buff ;
 	VideoCapture webSource = null;
 
 	Mat frame = new Mat();
@@ -39,6 +43,7 @@ public class PrzechwytVideo extends JFrame implements ActionListener {
 		panelDoWyswietlenia.setSize(800, 600);
 		kameraON.addActionListener(this);
 		kameraOFF.addActionListener(this);
+		takePicture.addActionListener(this);
 		kameraON.setBounds(300, 420, 70, 50);
 		kameraOFF.setBounds(400, 420, 70, 50);
 		takePicture.setBounds(250, 490,270, 50);
@@ -55,6 +60,16 @@ public class PrzechwytVideo extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		if(e.getSource()==takePicture){
+			File take=new File("dozapisu.jpg");
+			try {
+				ImageIO.write( buff, "png", take);
+			} catch (IOException e1) {
+			
+				System.out.println("Nie zapisano zdjêcia");
+			}
+			
+		}
 		if (e.getSource() == kameraON) {
 			webSource = new VideoCapture(0);
 			myThread = new DaemonThread();
@@ -86,9 +101,9 @@ public class PrzechwytVideo extends JFrame implements ActionListener {
 						try {
 							webSource.retrieve(frame);
 							Highgui.imencode(".bmp", frame, mem);
-							Image im = ImageIO.read(new ByteArrayInputStream(mem.toArray()));
+						Image im = ImageIO.read(new ByteArrayInputStream(mem.toArray()));
 
-							BufferedImage buff = (BufferedImage) im;
+						 buff = (BufferedImage) im;
 							Graphics g = panelDoWyswietlenia.getGraphics();
 
 							if (g.drawImage(buff, 0, 0, panelDoWyswietlenia.getWidth(),
