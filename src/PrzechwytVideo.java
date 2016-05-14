@@ -22,6 +22,7 @@ public class PrzechwytVideo extends JFrame implements ActionListener {
 	public JPanel panelDoWyswietlenia;
 	public JButton kameraON;
 	public JButton kameraOFF;
+	private JButton takePicture;
 	private DaemonThread myThread = null;
 	int count = 0;
 	VideoCapture webSource = null;
@@ -34,15 +35,17 @@ public class PrzechwytVideo extends JFrame implements ActionListener {
 		panelDoWyswietlenia = new JPanel();
 		kameraON = new JButton("ON");
 		kameraOFF = new JButton("OFF");
+		takePicture=new JButton("Take a picture");
 		panelDoWyswietlenia.setSize(800, 600);
 		kameraON.addActionListener(this);
 		kameraOFF.addActionListener(this);
-		kameraON.setBounds(300, 450, 75, 75);
-		kameraOFF.setBounds(400, 450, 75, 75);
-	
+		kameraON.setBounds(300, 420, 70, 50);
+		kameraOFF.setBounds(400, 420, 70, 50);
+		takePicture.setBounds(250, 490,270, 50);
 		panelDoWyswietlenia.setLayout(null);
 		panelDoWyswietlenia.add(kameraON);
 		panelDoWyswietlenia.add(kameraOFF );
+		panelDoWyswietlenia.add(takePicture);
 		tom.setSize(800, 600);
 		tom.getContentPane().add(panelDoWyswietlenia);
 		tom.setLocation(500, 400);
