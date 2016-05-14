@@ -29,8 +29,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import org.opencv.core.Mat;
 import org.opencv.highgui.Highgui;
 
-public class LadowanieZdjecia extends JPanel implements ActionListener {
-
+public class LadowanieZdjecia extends JFrame implements ActionListener {
+	private JFrame frame;
 	public JFileChooser fc;
 	public File filetoSave;
 	public JPanel zaladuj;
@@ -47,6 +47,7 @@ public class LadowanieZdjecia extends JPanel implements ActionListener {
 	public paint poDetekcji;
 
 	public LadowanieZdjecia() {
+		frame=new JFrame("Load a Image");
 		zaladuj = new JPanel();
 
 		wczytaj = new JButton("Zaladuj");
@@ -74,7 +75,7 @@ public class LadowanieZdjecia extends JPanel implements ActionListener {
 				poDetekcji.setSize(400, 500);
 				poDetekcji.picture = detectionImage;
 
-				// detekcjaa.add(poDetekcji,BorderLayout.CENTER);
+				
 				poDetekcji.repaint();
 				DF.add(poDetekcji);
 				DF.setVisible(true);
@@ -89,6 +90,10 @@ public class LadowanieZdjecia extends JPanel implements ActionListener {
 
 		dziala = new paint();
 		poDetekcji = new paint();
+		
+		frame.setSize(400, 500);
+		frame.add(zaladuj);
+		frame.setVisible(true);
 
 	}
 
@@ -118,7 +123,7 @@ public class LadowanieZdjecia extends JPanel implements ActionListener {
 			dziala.picture = Image2;
 			zaladuj.add(dziala, BorderLayout.CENTER);
 			dziala.repaint();
-			System.out.println(path);
+			
 
 		}
 

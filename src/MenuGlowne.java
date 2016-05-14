@@ -50,6 +50,14 @@ public class MenuGlowne extends JPanel {
 				
 			}
 		});
+		detekcjaZdjecie.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+			new LadowanieZdjecia();
+				
+			}
+		});
 		
 	}
 
