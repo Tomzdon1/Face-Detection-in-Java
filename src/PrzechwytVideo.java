@@ -61,7 +61,7 @@ public class PrzechwytVideo extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==takePicture){
-			File take=new File("dozapisu.jpg");
+			File take=new File("zapisany.jpg");
 			try {
 				ImageIO.write( buff, "png", take);
 			} catch (IOException e1) {
@@ -115,7 +115,7 @@ public class PrzechwytVideo extends JFrame implements ActionListener {
 									this.wait();
 								}
 						} catch (Exception ex) {
-							System.out.println("Error");
+							System.out.println(mem.toArray());
 						}
 					}
 				}
