@@ -31,7 +31,7 @@ public class MenuGlowne extends JPanel {
 
 		napisGlowny.setFont(new Font("Arial Bold", Font.BOLD, 18));
 		napisGlowny.setBounds(170, 10, 300, 50);
-		
+
 		menu.setSize(500, 600);
 
 		menu.setLayout(null);
@@ -40,25 +40,30 @@ public class MenuGlowne extends JPanel {
 		menu.add(detekcjaZdjecie);
 		menu.add(detekcjaLive);
 		menu.setBackground(Color.GRAY);
-		
-		
-		detekcjaScreen.addActionListener(new ActionListener() {
+		detekcjaLive.addActionListener(new ActionListener() {
 			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new FaceDetection();
+			}
+		});
+		detekcjaScreen.addActionListener(new ActionListener() {
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				new PrzechwytVideo();
-				
+
 			}
 		});
 		detekcjaZdjecie.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-			new LadowanieZdjecia();
-				
+				new LadowanieZdjecia();
+
 			}
 		});
-		
+
 	}
 
 }

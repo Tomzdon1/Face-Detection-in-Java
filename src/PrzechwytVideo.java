@@ -28,28 +28,28 @@ public class PrzechwytVideo extends JFrame implements ActionListener {
 	private JButton takePicture;
 	private DaemonThread myThread = null;
 	int count = 0;
-	 public BufferedImage buff ;
+	public BufferedImage buff;
 	VideoCapture webSource = null;
 
 	Mat frame = new Mat();
 	MatOfByte mem = new MatOfByte();
 
 	public PrzechwytVideo() {
-		JFrame tom=new JFrame("Zdjecie");
+		JFrame tom = new JFrame("Zdjecie");
 		panelDoWyswietlenia = new JPanel();
 		kameraON = new JButton("ON");
 		kameraOFF = new JButton("OFF");
-		takePicture=new JButton("Take a picture");
+		takePicture = new JButton("Take a picture");
 		panelDoWyswietlenia.setSize(800, 600);
 		kameraON.addActionListener(this);
 		kameraOFF.addActionListener(this);
 		takePicture.addActionListener(this);
 		kameraON.setBounds(300, 420, 70, 50);
 		kameraOFF.setBounds(400, 420, 70, 50);
-		takePicture.setBounds(250, 490,270, 50);
+		takePicture.setBounds(250, 490, 270, 50);
 		panelDoWyswietlenia.setLayout(null);
 		panelDoWyswietlenia.add(kameraON);
-		panelDoWyswietlenia.add(kameraOFF );
+		panelDoWyswietlenia.add(kameraOFF);
 		panelDoWyswietlenia.add(takePicture);
 		tom.setSize(800, 600);
 		tom.getContentPane().add(panelDoWyswietlenia);
@@ -60,15 +60,15 @@ public class PrzechwytVideo extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource()==takePicture){
-			File take=new File("zapisany.jpg");
+		if (e.getSource() == takePicture) {
+			File take = new File("zapisany.jpg");
 			try {
-				ImageIO.write( buff, "png", take);
+				ImageIO.write(buff, "png", take);
 			} catch (IOException e1) {
-			
+
 				System.out.println("Nie zapisano zdjêcia");
 			}
-			
+
 		}
 		if (e.getSource() == kameraON) {
 			webSource = new VideoCapture(0);
@@ -101,9 +101,9 @@ public class PrzechwytVideo extends JFrame implements ActionListener {
 						try {
 							webSource.retrieve(frame);
 							Highgui.imencode(".bmp", frame, mem);
-						Image im = ImageIO.read(new ByteArrayInputStream(mem.toArray()));
+							Image im = ImageIO.read(new ByteArrayInputStream(mem.toArray()));
 
-						 buff = (BufferedImage) im;
+							buff = (BufferedImage) im;
 							Graphics g = panelDoWyswietlenia.getGraphics();
 
 							if (g.drawImage(buff, 0, 0, panelDoWyswietlenia.getWidth(),

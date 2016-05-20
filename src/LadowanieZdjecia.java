@@ -47,7 +47,7 @@ public class LadowanieZdjecia extends JFrame implements ActionListener {
 	public paint poDetekcji;
 
 	public LadowanieZdjecia() {
-		frame=new JFrame("Load a Image");
+		frame = new JFrame("Load a Image");
 		zaladuj = new JPanel();
 
 		wczytaj = new JButton("Zaladuj");
@@ -75,7 +75,6 @@ public class LadowanieZdjecia extends JFrame implements ActionListener {
 				poDetekcji.setSize(400, 500);
 				poDetekcji.picture = detectionImage;
 
-				
 				poDetekcji.repaint();
 				DF.add(poDetekcji);
 				DF.setVisible(true);
@@ -90,7 +89,7 @@ public class LadowanieZdjecia extends JFrame implements ActionListener {
 
 		dziala = new paint();
 		poDetekcji = new paint();
-		
+
 		frame.setSize(400, 500);
 		frame.add(zaladuj);
 		frame.setVisible(true);
@@ -123,7 +122,6 @@ public class LadowanieZdjecia extends JFrame implements ActionListener {
 			dziala.picture = Image2;
 			zaladuj.add(dziala, BorderLayout.CENTER);
 			dziala.repaint();
-			
 
 		}
 
