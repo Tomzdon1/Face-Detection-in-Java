@@ -31,8 +31,10 @@ public class FaceDetection extends JFrame implements ActionListener {
 	int count = 0;
 	VideoCapture webSource = null;
 	Mat frame = new Mat();
+	//CascadeClassifier faceDetector = new CascadeClassifier(
+		//	"D:/opencv/sources/data/haarcascades/haarcascade_frontalface_alt.xml");
 	CascadeClassifier faceDetector = new CascadeClassifier(
-			"D:/opencv/sources/data/haarcascades/haarcascade_frontalface_alt.xml");
+			"D:/opencv/sources/data/lbpcascades/lbpcascade_frontalface.xml");
 	MatOfRect faceDetections = new MatOfRect();
 	MatOfByte mem = new MatOfByte();
 	public JPanel wys;
@@ -94,7 +96,7 @@ public class FaceDetection extends JFrame implements ActionListener {
 							Graphics g = wys.getGraphics();
 							faceDetector.detectMultiScale(frame, faceDetections);
 							for (Rect rect : faceDetections.toArray()) {
-								System.out.println("wykryto ryj");
+								System.out.println("wykryto twarz");
 								Core.rectangle(frame, new Point(rect.x, rect.y),
 										new Point(rect.x + rect.width, rect.y + rect.height), new Scalar(0, 255, 0));
 							}

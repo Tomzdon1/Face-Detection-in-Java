@@ -15,7 +15,7 @@ public class MenuGlowne extends JPanel {
 	private JButton detekcjaLive;
 	private JLabel napisGlowny;
 
-	private String napis = "DETECTION FACE";
+	private String napis = "FACE DETECTION";
 
 	public MenuGlowne() {
 

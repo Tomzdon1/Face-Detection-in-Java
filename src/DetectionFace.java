@@ -16,7 +16,7 @@ public class DetectionFace extends LadowanieZdjecia {
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 		System.out.println("\nRunning FaceDetector");
 
-		Detekcja = new CascadeClassifier("D:/opencv/sources/data/lbpcascades/lbpcascade_frontalface.xml");
+		Detekcja = new CascadeClassifier("D:/opencv/sources/data/haarcascades/haarcascade_frontalface_alt.xml");
 		Mat image = Highgui.imread("D:/Workspace_java/Obrazy/zapisany.jpg");
 
 		MatOfRect DetekcjaTwarzy = new MatOfRect();
